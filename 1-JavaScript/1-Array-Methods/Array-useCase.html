@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Array Methods - UseCases">
+    <title>JavaScript - Array Methods - UseCases</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Array Methods - UseCases
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+
+        // filter(), find(), map(), reduce(), every() and some()
+
+        // filter() return array
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+
+        // filter the students who has isSelected: true
+        // [ { name: 'John', dept: 'CSE', age: 18, isSelected: true }, { name: 'John', dept: 'CSE', age: 18, isSelected: true } ]
+
+        // let selectedStudents = [];
+        // for(let i = 0; i < students.length; i++) {
+        //     let student = students[i]; // { name: 'John', dept: 'CSE', age: 18, isSelected: true }
+        //     if (student.isSelected) { //true == true => true
+        //         selectedStudents.push(student);
+        //     }
+        // }
+        // console.log(selectedStudents);
+
+        // let selectedStudents = students.filter((student) => student.isSelected);
+        // console.log(selectedStudents);
+
+        // let age = students.filter((student) => student.age == 18);
+        // console.log(age);
+
+        // find() return value
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+        
+        // // find student dept == IT
+        // let deptIT = students.find((student) => student.dept == 'IT');
+        // console.log(deptIT);
+
+        // map()
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+        
+        // new property college: 'SkillSafari' for all the elements
+        // ...spread operator
+        // let updatedStudents = students.map((student) => {
+        //     return {
+        //         ...student, // { name: 'John', dept: 'CSE', age: 18, isSelected: true }
+        //         college: 'SkillSafari'
+        //     }
+        // }) // { name: 'John', dept: 'CSE', age: 18, isSelected: true, college: 'SkillSafari' }
+        // console.log(updatedStudents);
+
+
+        // reduce()
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+
+        // Output => totalAge of all the students => 18 + 19 + 18 + 20 = 75
+        // let totalAge = students.reduce((age, student) => age + student.age, 0);
+        // console.log(totalAge); // 75
+
+        // find the student with maximum age
+
+        // every()
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+        // let isSelected = students.every((student) => student.isSelected);
+        // console.log(isSelected); // false
+
+        // some()
+        let students = [
+            { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+            { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+            { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+            { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        ];
+        let isSelected = students.some((student) => student.isSelected);
+        console.log(isSelected); // true
+
+    </script>
+</body>
+</html>

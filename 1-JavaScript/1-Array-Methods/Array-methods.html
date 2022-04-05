@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Array Methods">
+    <title>JavaScript - Array Methods: forEach()</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Array Methods: forEach()
+        // let fruits = ['Apple', 'Orange', 'Mango', 'Banana'];
+        // // fruits[0] = Apple
+        // // fruits[1] = Orange
+        // // fruits[2] = Mango
+        // // fruits[3] = Banana
+        // console.log(fruits);
+        // // forEach()
+        // // Syntax
+        // // arrayVar.forEach(function(item, index, array) {
+        //         // function body
+        // // })
+        // fruits.forEach(function(item, index, array) {
+        //     console.log(`Element: ${item}, Index: ${index}, Array: ${array}`);
+        // });
+
+        // ['Apple', 'Orange', 'Mango', 'Banana'].forEach((item, index, array) => console.log(`Element: ${item}, Index: ${index}, Array: ${array}`));
+
+        // ['Apple', 'Orange', 'Mango', 'Banana'].forEach((item, index) => console.log(`Index: ${index}`));
+        
+
+        // Search in Array
+        // indexOf()
+        // lastIndexOf()
+        // includes()
+
+        // let fruits = ['Apple', 'Orange', 'Mango', 'Banana', 'Orange'];
+
+        // // indexOf()
+        // // Syntax
+        // // array.indexOf('searchingElement', 'fromIndex') : looks for 'item' starting from the index 'from', and return
+        // // the 'index' of 'item', otherwise '-1'
+
+        // // console.log(fruits.indexOf('Mango')); // 2
+        // // console.log(fruits.indexOf('Grapes')); // -1
+
+        // // console.log(fruits.indexOf('Orange', 2)); // 4
+
+        // // lastIndexOf()
+        // // array.lastIndexOf('searchingElement', 'fromIndex') : as same as indexOf(), but looks for from right to left
+        
+        // // console.log(fruits.lastIndexOf('Orange')); // 4
+
+        // // includes()
+        // // arr.includes('searchingElement', 'fromIndex') : looks for 'item' starting from the index 'from', and return
+        // // the 'true', otherwise 'false' 
+
+        // console.log(fruits.includes('Mango', 3)); // false
+        // console.log(fruits.includes('Mango', 2)); // true
+
+        // find()
+        // findIndex()
+
+        // find()
+        // arr.find(function(item, index, array) {
+            // if true is returned, item is returned and iteration is stopped
+            // for falsy scenario returns undefined
+        // })
+        
+        // let fruits = ['Apple', 'Orange', 'Mango', 'Banana'];
+        // find 'Mango' is present in 'fruits' array
+        // console.log(fruits.find(function(item) {
+        //     return item === 'Mango'
+        // }));
+
+        // console.log(fruits.find((item) => item == 'Mango')); // Mango
+
+        // console.log(fruits.findIndex(function(item) {
+        //     return item === 'Mango'
+        // }));
+
+        // console.log(fruits.findIndex((item) => item === 'Mango')); // 2
+
+        // filter()
+        // let results = arr.filter(function(item, index, array) {
+            //if true, item is pushed to the results and the iteration continues
+            // return empty array if nothing found
+        // })
+
+        // let fruits = ['Apple', 'Orange', 'Mango', 'Banana', 'Mango', 'Mango'];
+        // let results = fruits.filter(function(item) {
+        //     return item === 'Grapes'
+        // });
+        // console.log(results);
+
+        // Transform an array
+        // map()
+        // Syntax
+        // array.map(function(item, index, array) {
+            // return the new value instead of item
+        // })
+        // let fruits = ['Apple', 'Orange', 'Mango', 'Banana'];
+
+        // let fruitsLength = fruits.map(function(item) {
+        //     return item.length;
+        // });
+
+        // let fruitsLength = fruits.map((item) => item.length );
+
+        // console.log(fruits); // ['Apple', 'Orange', 'Mango', 'Banana']
+        // console.log(fruitsLength); // [5, 6, 5, 6]
+
+        // reduce()
+        // Syntax
+        // array.reduce(function(accumulator, item, index, array) {
+            //...
+        // }, [initialValue])
+
+        let arr = [ 1, 2, 3, 4, 5 ];
+        let result = arr.reduce((sum, current) => sum + current, 0 );
+        // sum: 0 current: 1 => 0 + 1 = 1
+        // sum: 1 current: 2 => 1 + 2 = 3
+        // sum: 3 current: 3 => 3 + 3 = 6
+        // sum: 6 current: 4 => 6 + 4 = 10
+        // sum: 10 current: 5 => 10 + 5 => 15
+
+        // let result = arr.reduce(function(sum, current) {
+        //     return sum + current;
+        // }, 0)
+        console.log(result);
+
+
+     
+
+
+        
+    </script>
+</body>
+</html>
