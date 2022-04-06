@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Map">
+    <title>JavaScript - Map</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Map
+        // Map is a collection of keyed data items similar to Object. Main difference between Object and Map is, Map allows 'keys' of 'any type'
+        // Object - keyed data items (propertyName: propertyValue or key: value, key must be in the type of 'string')
+        // let user = {
+        //     firstName: 'SkillSafari',
+        //     age: 30,
+        //     false: true
+        // }
+
+        // Methods and Properties
+        // 1. let map = new Map() - create the map
+        // 2. map.set(key, value) - stores the value by key // map.set('firstName', 'SkillSafari')
+        // 3. map.get(key) - return the value of the key. return 'undefined' if the key not exists in the map
+        // 4. map.has(key) - return 'true' if key exists else return 'false'
+        // 5. map.delete(key) - removes the value by the key
+        // 6. map.clear() - removes everything from the map
+        // 7. map.size - return the current property count
+        
+        // Creating Map
+        // let map = new Map();
+        // console.log(map);
+        // // Assigning properties for Map
+        // map.set('firstName', 'SkillSafari');
+        // map.set('age', 30);
+        // map.set(1, true);
+
+        // Assigning properties of Map : Method - 2
+        let fruitsPrice = new Map([
+            ['Apple', 200], 
+            ['Orange', 150], 
+            ['Mango', 100]
+        ]);
+        console.log(fruitsPrice);
+
+        // // Get the properties value of the Map
+        // console.log(map.get('firstName')); // SkillSafari
+        // console.log(map.get(1)); // true
+        // console.log(map.get('lastName')); // undefined
+        
+        // // Check the property existance
+        // console.log(map.has('age')); // true
+        // console.log(map.has('lastName')); // false
+        
+        // // Delete Map property
+        // map.delete(1);
+        // console.log(map);
+
+        // // Size
+        // console.log(map.size);
+
+        // Objects as key
+        // let john = { name: 'John' };
+        // let user = new Map();
+        // user.set(john, 256);
+        // console.log(user.get(john));
+
+        // Chaining of set()
+        // let user = new Map()
+        // user.set('userOne', 'John').set('userTwo', 'Jack').set('userThree', 'Mary');
+        // console.log(user);
+
+        // Iteration over Map (for... of)
+        // 3 Methods
+        // map.keys() - returns an iterable keys
+        // map.values() - returns an iterable values
+        // map.entries() - returns an iterable for entries [key, value]
+        let user = new Map()
+        user.set('userOne', 'John').set('userTwo', 'Jack').set('userThree', 'Mary');
+        console.log(user.keys());
+        for(let userKey of user.keys()) {
+            console.log(userKey)
+        }
+        for ( let userValue of user.values()) {
+            console.log(userValue);
+        }
+        // console.log(user.entries());
+        // for (let [key, value] of user.entries()) {
+        //     console.log(`Key => ${key}: Value => ${value}`);
+        // }
+
+        user.forEach((value, key, map) => {
+            console.log(`Key => ${key}: Value => ${value}`)
+        })
+
+    </script>
+</body>
+</html>

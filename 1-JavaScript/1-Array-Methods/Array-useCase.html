@@ -77,18 +77,57 @@
 
 
         // reduce()
-        // let students = [
-        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
-        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
-        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
-        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
-        // ];
+        let students = [
+            { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+            { name: 'Jack', dept: 'EEE', age: 30, isSelected: false },
+            { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+            { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        ];
 
         // Output => totalAge of all the students => 18 + 19 + 18 + 20 = 75
         // let totalAge = students.reduce((age, student) => age + student.age, 0);
         // console.log(totalAge); // 75
 
         // find the student with maximum age
+        // let maxAge = students.reduce((age, student) => {
+        //     if(age<student.age) {
+        //         age = student.age;
+        //     } 
+        //     return age;
+        // }, 0);
+        // console.log(maxAge);
+
+        let maxAge = students.reduce((maxAgeStudent, student) => {
+            return (maxAgeStudent.age || 0) > student.age ? maxAgeStudent : student;
+        }, {});
+        console.log(maxAge);
+        // Iteration-1
+        // maxAgeStudent = {}
+        // student = { name: 'John', dept: 'CSE', age: 18, isSelected: true }
+        // Iteration-2
+        // maxAgeStudent = { name: 'John', dept: 'CSE', age: 18, isSelected: true }
+        // student = { name: 'Jack', dept: 'EEE', age: 19, isSelected: false }
+        // 18 > 19
+        // Iteration-3
+        // maxAgeStudent = { name: 'Jack', dept: 'EEE', age: 19, isSelected: false }
+        // student = { name: 'Mary', dept: 'ECE', age: 18, isSelected: true }
+        // 19 > 18
+        // Iteration-4
+        // maxStudentAge = { name: 'Jack', dept: 'EEE', age: 19, isSelected: false }
+        // student = { name: 'Peter', dept: 'IT', age: 20, isSelected: false }
+        // 19 > 20
+        // maxAge = { name: 'Peter', dept: 'IT', age: 20, isSelected: false }
+
+        // short-circuiting
+        // (operand-1 || operand-2)
+        // false || false 
+        // 1 || 0 => 1
+        // 0 || 1 => 1
+        // 0 || 0 => 0
+        // Search for first 'truthy' value, if found it return the value of the operand
+        // If no 'truthy' value found, it return second operand value
+
+
 
         // every()
         // let students = [
@@ -101,14 +140,14 @@
         // console.log(isSelected); // false
 
         // some()
-        let students = [
-            { name: 'John', dept: 'CSE', age: 18, isSelected: true },
-            { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
-            { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
-            { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
-        ];
-        let isSelected = students.some((student) => student.isSelected);
-        console.log(isSelected); // true
+        // let students = [
+        //     { name: 'John', dept: 'CSE', age: 18, isSelected: true },
+        //     { name: 'Jack', dept: 'EEE', age: 19, isSelected: false },
+        //     { name: 'Mary', dept: 'ECE', age: 18, isSelected: true },
+        //     { name: 'Peter', dept: 'IT', age: 20, isSelected: false },
+        // ];
+        // let isSelected = students.some((student) => student.isSelected);
+        // console.log(isSelected); // true
 
     </script>
 </body>
