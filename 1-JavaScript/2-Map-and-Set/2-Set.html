@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Set">
+    <title>JavaScript - Set</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Set
+        // Set is a special type collection - 'set of values' (without key), where each value may occur only once
+
+        // Methods and Property
+        // let set = new Set() - creates the set
+        // set.add(value) - add value to the set
+        // set.delete(value) - remove the value fron the set
+        // set.has(value) - return 'true' if the value exists else return 'false'
+        // set.clear() - removes everything from the set
+        // set.size - return the element count
+
+        // let set = new Set();
+        // console.log(set);
+        // let john = { name: 'John'};
+        // let jack = { name: 'Jack'};
+        // let mary = { name: 'Mary'};
+        // set.add(john);
+        // set.add(jack);
+        // set.add(mary);
+        // set.add(john);
+        // set.add(john);
+        // console.log(set);
+        // for (let user of set ) {
+        //     console.log(user.name);
+        // }
+
+        // Iteration over set
+        let set = new Set(['Apple', 'Orange', 'Mango']);
+        console.log(set);
+        set.forEach((value, valueAgain) => {
+            console.log(`${value} : ${valueAgain}`);
+        })
+
+        // Interate using for...of 
+        // set.keys()
+        // set.values()
+        // set.entries() - [value, value]
+
+
+    </script>
+</body>
+</html>

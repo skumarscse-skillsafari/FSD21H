@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Object Iteration Methods">
+    <title>JavaScript - Object Iteration Methods</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Object Iteration Methods
+        // for...of
+        // Object.keys(obj)
+        // Object.values(obj)
+        // Object.entries(obj)
+
+        let user = {
+            name: 'SkillSafari',
+            age: 28,
+            designation: 'Full stack developer',
+        }
+        // console.log(Object.keys(user));
+        // for(let key of Object.keys(user)) {
+        //     console.log(key);
+        // }
+        
+        console.log(Object.values(user));
+        for(let value of Object.values(user)) {
+            console.log(value);
+        }
+
+        console.log(Object.entries(user));
+
+        // Transforming object
+        // 1. Use Object.entries(obj) to get array of key/value pairs from obj
+        // 2. Use array methods on that array eg: map() to transform these key/value pair
+        // 3. Use Object.fromEntries(array) on the resulting array yo turn it back into an object
+        // Object.entries(obj) - Object in to an iterable array
+        // Object.fromEntries(array) - iterable array in to an Object
+
+        let prices = {
+            apple: 200,
+            orange: 150,
+            mango: 100
+        };
+
+        console.log(prices);
+        let halfPrices = Object.fromEntries(Object.entries(prices).map(price => [price[0], price[1] / 2]));
+        console.log(halfPrices);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - WeakSet">
+    <title>JavaScript - WeakSet</title>
+</head>
+<body>
+    <script>
+        // JavaScript - WeakSet
+        let weakSet = new WeakSet();
+        console.log(weakSet);
+        let john = {name: 'John'};
+        let jack = {name: 'Jack'};
+        let mary = {name: 'Mary'};
+
+        weakSet.add(john);
+        weakSet.add(jack);
+        weakSet.add(mary);
+        weakSet.add(john);
+        weakSet.add(john);
+        console.log(weakSet);
+
+        // Supported Methods
+        // add(), has(), delete()
+
+        // Not Supported Methods
+        // keys(), values(), entries(), size, clear()
+
+    </script>
+</body>
+</html>

@@ -36,12 +36,12 @@
         // map.set(1, true);
 
         // Assigning properties of Map : Method - 2
-        let fruitsPrice = new Map([
-            ['Apple', 200], 
-            ['Orange', 150], 
-            ['Mango', 100]
-        ]);
-        console.log(fruitsPrice);
+        // let fruitsPrice = new Map([
+        //     ['Apple', 200], 
+        //     ['Orange', 150], 
+        //     ['Mango', 100]
+        // ]);
+        // console.log(fruitsPrice);
 
         // // Get the properties value of the Map
         // console.log(map.get('firstName')); // SkillSafari
@@ -75,23 +75,53 @@
         // map.keys() - returns an iterable keys
         // map.values() - returns an iterable values
         // map.entries() - returns an iterable for entries [key, value]
-        let user = new Map()
-        user.set('userOne', 'John').set('userTwo', 'Jack').set('userThree', 'Mary');
-        console.log(user.keys());
-        for(let userKey of user.keys()) {
-            console.log(userKey)
-        }
-        for ( let userValue of user.values()) {
-            console.log(userValue);
-        }
-        // console.log(user.entries());
-        // for (let [key, value] of user.entries()) {
-        //     console.log(`Key => ${key}: Value => ${value}`);
+        // let user = new Map()
+        // user.set('userOne', 'John').set('userTwo', 'Jack').set('userThree', 'Mary');
+        // console.log(user.keys());
+        // for(let userKey of user.keys()) {
+        //     console.log(userKey)
         // }
+        // for ( let userValue of user.values()) {
+        //     console.log(userValue);
+        // }
+        // // console.log(user.entries());
+        // // for (let [key, value] of user.entries()) {
+        // //     console.log(`Key => ${key}: Value => ${value}`);
+        // // }
 
-        user.forEach((value, key, map) => {
-            console.log(`Key => ${key}: Value => ${value}`)
-        })
+        // user.forEach((value, key, map) => {
+        //     console.log(`Key => ${key}: Value => ${value}`)
+        // })
+
+        // Object.entries() - Object in to Map
+        // Object.fromEntries() - Map in to Object
+        
+        // Object.entries()
+        // let user = {
+        //     name: 'John',
+        //     age: 30,
+        //     designation: 'Full stack developer',
+        // };
+        // console.log(user);
+
+        // // console.log(Object.entries(user));
+        // Object.entries(user).map((prop) => {
+        //     console.log(`${prop[0]} : ${prop[1]}`);
+        // })
+
+        // let map = new Map(Object.entries(user));
+        // map.forEach((value, key) => {
+        //     console.log(`${key} : ${value}`);
+        // })
+
+        // Object.fromEntries()
+        let prices = Object.fromEntries([
+            ['Apple', 200],
+            ['Orange', 150],
+            ['Mango', 100],
+        ]);
+        console.log(prices.Apple);
+        
 
     </script>
 </body>
