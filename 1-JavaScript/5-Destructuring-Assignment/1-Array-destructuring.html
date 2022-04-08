@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Destructuring Assignment">
+    <title>JavaScript - Destructuring Assignment</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Destructuring Assignment
+        // 1. Object
+        // 2. Array
+        // Object allows us to create a single entity that stores data items by key
+        // Array allows us to gather data items into an ordered list
+
+        // Destructuring assignment is a special syntax that allows us to 'unpack' arrays or objects into 
+        // a bunch of variables
+        // Destructuring works great with complex functions that have a lot of parameters, default values and so on
+
+
+        // Array
+        // let fruits = [ 'Apple', 'Orange', 'Mango', 'Grapes' ];
+        // console.log(fruits[0]);
+
+        // Array Destructuring
+        // Syntax
+        // let [varName-1, varName-2,..., VarName-N] = [arrEle-1, arrEle-2,..., arr-Ele-N]
+        // let fruits = [ 'Apple', 'Orange', 'Mango', 'Grapes' ];
+        // let [apple, orange, mango, grapes] = fruits;
+        // console.log(apple, orange, mango, grapes);
+
+        // let [firstName, lastName] = 'SkillSafari EduKeys'.split(' '); // [ 'SkillSafari', 'EduKeys']
+        // console.log(firstName, lastName);
+
+        // Ignore elements using comma
+        // let [apple, , mango] = [ 'Apple', 'Orange', 'Mango' ];
+        // console.log(apple, mango);
+
+        // let [apple, orange, mango] = new Set(['Apple', 'Orange', 'Mango']);
+        // console.log(apple, orange, mango);
+
+        // let user = {};
+        // [user.firstName, user.lastName] = 'SkillSafari EduKeys'.split(' ');
+        // console.log(user);
+
+        // let user = {
+        //     firstName: 'SkillSafari',
+        //     lastName: 'EduKeys',
+        // }
+        // console.log(Object.entries(user));
+        // for (let [key, value] of Object.entries(user)) {
+        //     console.log(key, value)
+        // }
+
+        // let user = new Map([
+        //     ['firstName', 'SkillSafari'],
+        //     ['lastName', 'EduKeys']
+        // ]);
+        // console.log(user);
+        // console.log(user.entries());
+        // for (let [key, value] of user.entries()) {
+        //     console.log(key, value);
+        // }
+        
+        // Swap variable trick
+        // let john = 'John';
+        // let jack = 'Jack';
+        // [john, jack] = [jack, john];
+        // console.log(john, jack);
+
+        // The rest '...'
+        // let [firstName, lastName, ...unUsedElements] = ['SkillSafari', 'EduKeys', 30, 'Full-stack developer', 'Mexico'];
+        // console.log(firstName); // SkillSafari
+        // console.log(lastName); // EduKeys
+        // console.log(unUsedElements); // [ 30, 'Full-stack developer', 'Mexico']
+        // let [age, designation, city] = unUsedElements;
+        // console.log(age);
+        // console.log(designation);
+        // console.log(city);
+
+        // Default values
+        // let [firstName = 'SkillSafari', lastName = 'EduKeys'] = ['John'];
+        // console.log(firstName);
+        // console.log(lastName);
+
+        // let [firstName = prompt('FirstName ?'), lastName = prompt('LastName ?')] = ['SkillSafari'];
+        // console.log(firstName);
+        // console.log(lastName);
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Object Destructuring">
+    <title>JavaScript - Object Destructuring</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Object Destructuring
+        // Syntax
+        // let {propName-1, propName-2,..., propName-N} = {propName-1:..., propName-2:..., propName-N:...};
+        // let user = {
+        //     firstName: 'SkillSafari',
+        //     lastName: 'EduKeys',
+        //     age: 30
+        // }
+        // let { firstName, lastName, age } = user;
+        // console.log(firstName);
+        // console.log(lastName);
+        // console.log(age);
+
+        // Alias or alternate name to the destructuring variable (:)
+        // let { firstName : name, lastName : surname, age: year } = user;
+        // console.log(name);
+        // console.log(surname);
+        // console.log(year);
+
+        // Adding properties to the object at run time using assignment operator
+        // let user = {
+        //     firstName: 'SkillSafari'
+        // };
+        // let { lastName: l = 'EduKeys', age: a = 30, firstName: f } = user;
+        // console.log(f);
+        // console.log(l);
+        // console.log(a);
+
+        // let user = {
+        //     firstName: 'SkillSafari',
+        //     lastName: 'EduKeys',
+        //     age: 30
+        // }
+        // let {lastName} = user;
+        // console.log(lastName);
+
+        // The rest pattern '...'
+        // let user = {
+        //     firstName: 'SkillSafari',
+        //     lastName: 'EduKeys',
+        //     age: 30
+        // }
+        // let {firstName, ...restProps} = user;
+        // console.log(firstName); // SkillSafari
+        // console.log(restProps); // { lastName: 'EduKeys', age: 30 }
+        // let {lastName, age} = restProps;
+        // console.log(lastName);
+        // console.log(age);
+
+        // Nested destructuring
+        let user = {
+            fullName: {
+                firstName: 'SkillSafari',
+                lastName: 'EduKeys',
+            },
+            hobbies: ['Cricket', 'Football'],
+            isAdmin: true
+        };
+        let { fullName: {
+                firstName,
+                lastName,
+            },
+            hobbies: [hobby_1, hobby_2],
+            isAdmin,
+            city = 'Mexico',
+        } = user;
+        
+        console.log(firstName);
+        console.log(lastName);
+        console.log(hobby_1);
+        console.log(isAdmin);
+        console.log(city)
+        
+
+    </script>
+</body>
+</html>
