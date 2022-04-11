@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Spread Operator">
+    <title>JavaScript - Spread Operator</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Spread Operator
+        // Syntax
+        // let varName-1 = [...value];
+
+        // concat() array without spread operator
+        // let arr = [1, 2, 3];
+        // let arr2 = [4, 5, 6];
+        // arr = arr.concat(arr2);
+        // console.log(arr);
+
+        // without concat()
+        // let arr = [1, 2, 3];
+        // let arr2 = [4, 5, 6];
+        // arr = [...arr, ...arr2];
+        // console.log(arr);
+
+        // copying array elements without spread
+        // let arr = ['a', 'b', 'c'];
+        // let arr2 = arr;
+        // arr2.push('d', 'e');
+        // console.log(arr);
+        // console.log(arr2);
+
+        // copying array elements with spread 
+        // let arr = ['a', 'b', 'c'];
+        // let arr2 = [...arr];
+        // arr2.push('d', 'e');
+        // console.log(arr);
+        // console.log(arr2);
+
+        // Expand an array without spread
+        // let arr = ['a', 'b'];
+        // let arr2 = [arr, 'c', 'd'];
+        // console.log(arr2);
+
+        // Expan an array with spread
+        // let arr = ['a', 'b'];
+        // let arr2 = [...arr, 'c', 'd'];
+        // console.log(arr2);
+
+        // Math
+        // min()
+        // console.log(Math.min(1, 0, -1, -2));
+
+        // // max()
+        // console.log(Math.max(1, 2, -1, -6, 9, 3));
+
+        // let arr = [-1, -2, 0, 1, 2];
+        // console.log(Math.min(...arr));
+        // console.log(Math.max(...arr));
+
+        // Spread in Objects
+        // Clone object properties
+        // const user = {
+        //     name: 'John',
+        //     age: 30
+        // }
+        // const clonedUser = {...user};
+        // clonedUser.designation = 'Full stack developer';
+        // console.log(user);
+        // console.log(clonedUser);
+
+        // Merge the Object properties
+        // const fullName = {
+        //     firstName: 'SkillSafari',
+        //     lastName: 'EduKeys'
+        // };
+        // const address = {
+        //     doorNo: 28,
+        //     street: 'xyz street',
+        //     city: 'Mexico',
+        //     pincode: 987654,
+        // };
+
+        // const user = { ...fullName, ...address, age: 30 };
+        // console.log(user);
+        
+        let user = {
+            name: 'John',
+            age: 30,
+            designation: 'Full stack developer',
+        }
+        // isAdmin: true
+        // user.isAdmin = true;
+       // let user2 = {isAdmin: true, ...user}
+        console.log({isAdmin: true, ...user});
+
+
+
+
+    </script>
+</body>
+</html>

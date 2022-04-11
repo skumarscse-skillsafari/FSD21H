@@ -59,28 +59,50 @@
         // console.log(age);
 
         // Nested destructuring
-        let user = {
-            fullName: {
-                firstName: 'SkillSafari',
-                lastName: 'EduKeys',
-            },
-            hobbies: ['Cricket', 'Football'],
-            isAdmin: true
-        };
-        let { fullName: {
-                firstName,
-                lastName,
-            },
-            hobbies: [hobby_1, hobby_2],
-            isAdmin,
-            city = 'Mexico',
-        } = user;
+        // let user = {
+        //     fullName: {
+        //         firstName: 'SkillSafari',
+        //         lastName: 'EduKeys',
+        //     },
+        //     hobbies: ['Cricket', 'Football'],
+        //     isAdmin: true
+        // };
+        // let { fullName: {
+        //         firstName,
+        //         lastName,
+        //     },
+        //     hobbies: [hobby_1, hobby_2],
+        //     isAdmin,
+        //     city = 'Mexico',
+        // } = user;
         
-        console.log(firstName);
-        console.log(lastName);
-        console.log(hobby_1);
-        console.log(isAdmin);
-        console.log(city)
+        // console.log(firstName);
+        // console.log(lastName);
+        // console.log(hobby_1);
+        // console.log(isAdmin);
+        // console.log(city);
+
+        // Smart function parameter
+        // let options = {
+        //     title: 'My Menu',
+        //     items: ['item-1', 'item-2']
+        // };
+
+        // function showMenu({title = 'Untitled', width: w = 100, height: h = 150, items}) {
+        //     console.log(title);
+        //     console.log(items);
+        //     console.log(w);
+        //     console.log(h);
+        // }
+        // showMenu(options);
+
+        function showMenu({ title = 'My Menu', width = 100, height = 150}) {
+            console.log(`${title} ${width} ${height}`)
+        }
+        showMenu({});
+
+        // let { title = 'My Menu', width = 100, height = 150} = {}
+
         
 
     </script>

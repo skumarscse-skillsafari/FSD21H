@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript - Rest Parameter">
+    <title>JavaScript - Rest Parameter</title>
+</head>
+<body>
+    <script>
+        // JavaScript - Rest Parameter
+        // Example - 1
+        // Without rest parameter
+        // function add (a, b) {
+        //     return a + b;
+        // }
+        // console.log(add(1, 2));
+        // console.log(add(1, 2, 3, 4));
+
+        // With rest parameter
+        // function add (...input) {
+        //     console.log(input);
+        //     let sum = 0;
+        //     for (let i of input) {
+        //         sum += i;
+        //     }
+        //     return sum;
+        // }
+        // console.log(add(1, 2));
+        // console.log(add(1, 2, 3, 4));
+        // console.log(add(1, 2, 3, 4, 5, 6));
+
+        function fruits(fruit_1, fruit_2, ...input) {
+            console.log(fruit_1);
+            console.log(fruit_2);
+            console.log(input);
+        }
+        fruits('Apple', 'Orange', 'Mango', 'Grapes', 'Banana');
+
+
+    </script>
+</body>
+</html>
