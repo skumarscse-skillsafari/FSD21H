@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="DOM - Traverse between siblings">
+    <title>DOM - Traverse between siblings</title>
+</head>
+<body>
+    <ul class="subjects">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Bootstrap</li>
+        <li class="current">JavaScript</li>
+        <li>React</li>
+        <li>Node</li>
+        <li>Express</li>
+        <li>MongoDB</li>
+    </ul>
+    <script>
+        // DOM - Traverse between siblings
+        let current = document.querySelector('.current');
+
+        // Get previous sibling
+        // console.log(current.previousElementSibling);
+
+        // Get next sibling
+        // console.log(current.nextElementSibling);
+
+        // Get all the previous sibling
+        let prevSibling = current.previousElementSibling;
+        while(prevSibling) {
+            console.log(prevSibling); // <li>Bootstrap</li>
+            prevSibling = current.previousElementSibling;
+        }
+
+
+
+
+    </script>
+</body>
+</html>

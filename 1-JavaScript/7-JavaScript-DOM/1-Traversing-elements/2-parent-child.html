@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="DOM - Traversing - Parent - Child">
+    <title>DOM - Traversing - Parent - Child</title>
+</head>
+<body>
+    <ul class="subjects">
+        <li class="first">HTML</li>
+        <li>CSS</li>
+        <li>Bootstrap</li>
+        <li class="current">JavaScript</li>
+        <li>React</li>
+        <li>Node</li>
+        <li>Express</li>
+        <li class="last">MongoDB</li>
+    </ul>
+    <script>
+        // DOM - Traversing - Parent - Child
+
+        // Get the first child element
+        let subjects = document.querySelector('.subjects');
+        console.log(subjects.firstElementChild);
+
+        // Get the last child element
+        console.log(subjects.lastElementChild);
+
+        // Get all the child elements
+        console.log(subjects.children); // HTMLCollections
+
+        // Array.from - convert HTMLCollections, NodeList into an array
+        // Syntax
+        // Array.from(HTMLCollection/NodeList) return type is Array
+        console.log(Array.from(subjects.children));
+        Array.from(subjects.children).forEach(element => {
+            console.log(element.textContent)
+        });
+
+        console.log(Array.from(subjects.children).map(element => element.textContent));
+    </script>
+</body>
+</html>
