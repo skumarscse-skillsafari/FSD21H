@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - insertAfter()">
+    <title>Manipulating Elements - insertAfter()</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <!-- <li>Services</li> -->
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <script>
+        // Manipulating Elements - insertAfter()
+        // insertAfter(newNode, existingNode)
+        // First, select the next sibling node of the existing node
+        // Then, select the parent node of the existing node and call the insertBefore() method 
+        // on the parent node to insert a new node before that immediate sibling node
+
+        let menu = document.querySelector('#menu');
+        let li = document.createElement('li');
+        li.textContent = 'Services';
+
+
+        function insertAfter(newNode, existingNode) {
+            existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+        }
+        insertAfter(li, menu.lastElementChild);
+    </script>
+</body>
+</html>

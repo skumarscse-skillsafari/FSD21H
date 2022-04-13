@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - createElement()">
+    <title>Manipulating Elements - createElement()</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+    </ul>
+    <!-- <div class="container">
+        <p class="message">This is newly created element</p>
+    </div> -->
+    <script>
+        // Manipulating Elements - createElement()
+        // createElement() - used to create new HTML element at the run time
+        // Create new <div>
+        // Child element <p>
+        // Append wit <div>
+
+        let div = document.createElement('div');
+        console.log(div); // <div></div>
+        div.className = 'container';
+        div.innerHTML = `
+                    <p id="message">This is newly created element</p>
+                    <p>This is some paragraph</p>
+                    <p>This is another paragraph</p>
+                    `;
+        document.body.appendChild(div);
+
+        // Creating new list
+        // <ul><li></li></ul>
+        let menu = document.querySelector('#menu');
+        let li = document.createElement('li');
+        li.textContent = 'About Us';
+        menu.appendChild(li);
+
+    </script>
+</body>
+</html>

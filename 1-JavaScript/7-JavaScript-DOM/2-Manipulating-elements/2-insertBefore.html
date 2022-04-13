@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - insertBefore()">
+    <title>Manipulating Elements - insertBefore()</title>
+</head>
+<body>
+    <ul id="menu">
+        <li id="services">Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <script>
+        // Manipulating Elements - insertBefore()
+        // parentNode.insertBefore(newNode, existingNode)
+        // newNode - the new element to be inserted
+        // existingNode - existing element
+        let menu = document.querySelector('#menu');
+        let li = document.createElement('li');
+        li.textContent = 'Home';
+        menu.insertBefore(li, menu.firstElementChild); 
+    </script>
+</body>
+</html>
