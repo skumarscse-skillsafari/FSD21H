@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - cloneNode()">
+    <title>Manipulating Elements - cloneNode()</title>
+</head>
+<body>
+    <ul id="subjects">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Bootstrap</li>
+    </ul>
+    <script>
+        // Manipulating Elements - cloneNode()
+        // cloneNode() - clone an element and all of its descendants
+        // let cloneNode = originalNode.cloneNode(true/false)
+        // true - the original node and all of its descendants are cloned
+        // false - only the original node will be cloned. 
+        let subjects = document.querySelector('#subjects');
+        let clonedSubjects = subjects.cloneNode(true);
+        clonedSubjects.id = 'subjects-mobile';
+        document.body.appendChild(clonedSubjects);
+    </script>
+</body>
+</html>

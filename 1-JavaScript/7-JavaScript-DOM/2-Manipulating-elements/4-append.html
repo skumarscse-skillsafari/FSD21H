@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - append()">
+    <title>Manipulating Elements - append()</title>
+</head>
+<body>
+    <ul id="subjects">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <script>
+        // Manipulating Elements - append()
+        // append() - insert a node after the last child node of a parent node
+        // parentNode.append(...nodes)
+
+        // Using the append() method to append an element
+        let subjects = document.querySelector('#subjects');
+        let subjectsArray = [ 'JavaScript', 'Bootstrap', 'React', 'Node' ];
+
+        let nodes = subjectsArray.map(subject => {
+            let li = document.createElement('li');
+            li.textContent = subject;
+            console.log(li);
+            return li;
+        });
+        console.log(nodes);
+        subjects.append(...nodes);
+
+    </script>
+</body>
+</html>

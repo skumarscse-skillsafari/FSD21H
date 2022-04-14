@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - removeChild()">
+    <title>Manipulating Elements - removeChild()</title>
+</head>
+<body>
+    <ul id="subjects">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Bootstrap</li>
+    </ul>
+    <script>
+        // Manipulating Elements - removeChild()
+        // removeChild() - remove child elements of a node
+        // parentNode.removeChild(childNode)
+
+        let subjects = document.querySelector('#subjects');
+        subjects.removeChild(subjects.lastElementChild);
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - prepend()">
+    <title>Manipulating Elements - prepend()</title>
+</head>
+<body>
+    <ul id="subjects">
+        <li>Node</li>
+    </ul>
+    <script>
+        // Manipulating Elements - prepend()
+        // prepend() - insert a node before the first child node of a parent node
+        // parentNode.append(...nodes)
+        let subjects = document.querySelector('#subjects');
+        let subjectsArray = [ 'HTML', 'CSS', 'JavaScript', 'React' ];
+
+        let nodes = subjectsArray.map(subject => {
+            let li = document.createElement('li');
+            li.textContent = subject;
+            return li;
+        })
+        subjects.prepend(...nodes);
+    </script>
+</body>
+</html>

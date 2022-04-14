@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating Elements - replaceChild()">
+    <title>Manipulating Elements - replaceChild()</title>
+</head>
+<body>
+    <ul id="subjects">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Bootstrap</li>
+    </ul>
+    <script>
+        // Manipulating Elements - replaceChild()
+        // replaceChild() - replace a child element by a new element
+        // parentNode.replaceChild(newChild, oldChild)
+
+        let subjects = document.querySelector('#subjects');
+        let li = document.createElement('li');
+        li.textContent = 'React';
+        console.log(li);
+
+        subjects.replaceChild(li, subjects.lastElementChild);
+    </script>
+</body>
+</html>

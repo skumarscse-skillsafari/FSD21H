@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Attributes - setAttribute()">
+    <title>Attributes - setAttribute()</title>
+    <style>
+        #message {
+            font-family: 'Courier New', Courier, monospace;
+            color: brown;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <p class="para-message">This is a paragraph</p>
+    
+    <input type="text" id="firstname" placeholder="First Name">
+    <button id="btn">Submit</button>
+    <script>
+        // Attributes - setAttribute()
+        // setAttribute('name', 'value'); id='message'
+        // getAttribute('name')
+        // removeAttribute('name')
+        // hasAttribute() // true / false
+
+        // setAttribute() - set a new attribute or update the existing attribute value
+        // element.setAttribute(name, value) 
+
+        let para = document.querySelector('p');
+        para.setAttribute('id', 'message');
+        // para.setAttribute('class', 'new-para');
+        // let btn = document.querySelector('button');
+        // btn.setAttribute('disabled', '');
+
+        // getAttribute()
+        // element.getAttribute('class')
+        console.log(para.getAttribute('class'));
+
+        // removeAttribute()
+        // para.removeAttribute('id');
+
+        // hasAttribute()
+        console.log(para.hasAttribute('class'));
+
+        let btnClick = document.querySelector('#btn');
+        let inputBox = document.querySelector('#firstname');
+        btn.addEventListener('click', () => {
+            inputBox.setAttribute('disabled', '');
+        })
+
+        
+    </script>
+</body>
+</html>
