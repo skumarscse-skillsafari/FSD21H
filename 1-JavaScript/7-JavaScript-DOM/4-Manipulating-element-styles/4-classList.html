@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Manipulating elements style - classList">
+    <title>Manipulating elements style - classList</title>
+    <style>
+        .vertical {
+            color: coral;
+        }
+    </style>
+</head>
+<body>
+    <p id="message" class="vertical">
+        This is a paragraph
+    </p>
+    <button id="btn">Click to Toggle</button>
+    <script>
+        // Manipulating elements style - classList
+        // let message = document.querySelector('#message');
+        // console.log(message.classList);
+        // for (let paraClass of message.classList) {
+        //     console.log(paraClass);
+        // }
+
+        // Add one or more classes to an element - classList.add()
+        // message.classList.add('main', 'text');
+
+        // Remove one or more the class - classList.remove()
+        // message.classList.remove('text', 'main');
+
+        // Replace one or more classes - classList.replace('existingClass', 'newClass')
+        // message.classList.replace('vertical', 'horizontal');
+
+        // Toggle - classList.toggle()
+        let message = document.querySelector('#message');
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            message.classList.toggle('vertical');
+        })
+
+
+    </script>
+</body>
+</html>
