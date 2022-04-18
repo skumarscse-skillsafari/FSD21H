@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Handling Web forms - Radio Button">
+    <title>Handling Web forms - Radio Button</title>
+</head>
+<body>
+    <form action="#" id="form">
+        <h2>Select your subject:</h2>
+        <div>
+            <input type="radio" name="subjects" id="english" value="English">
+            <label for="english">English</label>
+        </div>
+        <div>
+            <input type="radio" name="subjects" id="maths" value="Maths">
+            <label for="maths">Maths</label>
+        </div>
+        <div>
+            <input type="radio" name="subjects" id="physics" value="Physics">
+            <label for="physics">Physics</label>
+        </div>
+        <div>
+            <input type="radio" name="subjects" id="chemistry" value="Chemistry">
+            <label for="chemistry">Chemistry</label>
+        </div>
+        <div>
+            <input type="radio" name="subjects" id="computer" value="Computer">
+            <label for="computer">Computer</label>
+        </div>
+        <button id="btn">Show selected subject</button>
+        <p id="result">
+
+        </p>
+    </form>
+    <script>
+        // Handling Web forms - Radio Button
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+        let formElement = document.querySelector('#form');
+        console.log(formElement.elements.subjects);
+        let result = document.querySelector('#result');
+        let radioButtons = formElement.elements.subjects;
+        let selectedSubject;
+        for(const radioButton of radioButtons) {
+            if(radioButton.checked) {
+                selectedSubject = radioButton.value;
+                break;
+            }
+        }
+        result.innerText = selectedSubject ? `You selected ${selectedSubject}` : `You haven't selected any subject`;
+        })
+        
+
+    </script>
+</body>
+</html>

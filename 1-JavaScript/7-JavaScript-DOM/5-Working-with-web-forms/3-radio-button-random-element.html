@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Handling form elements - Radio button">
+    <title>Handling form elements - Radio button</title>
+</head>
+<body>
+    <h2>Select your subject:</h2>
+    <form action="#" id="form">
+
+    </form>
+    <p id="result">
+
+    </p>
+    <script>
+        // Handling form elements - Radio button
+        let subjectsArray = ['English', 'Maths', 'Physics', 'Chemistry', 'Computer'];
+        const formElement = document.querySelector('#form');
+        formElement.innerHTML = subjectsArray.map((subject) => `
+            <div>
+                <input type='radio' name='subjects' id='${subject.toLowerCase()}' value='${subject}'>
+                <label for='${subject.toLowerCase()}'>${subject}</label>
+            </div>`).join(' ');
+        
+        const radioButtons = formElement.elements.subjects;
+        console.log(radioButtons);
+        for (const radioButton of radioButtons) {
+            radioButton.addEventListener('change', (e) => {
+                console.log(e);
+                if (radioButton.checked) {
+                    document.querySelector('#result').innerText = `You selected the subject: ${radioButton.value}`;
+                }
+            })
+        }
+    </script>
+</body>
+</html>

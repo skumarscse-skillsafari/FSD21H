@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" content="Working with web form">
     <title>Working with web form</title>
+    <style>
+        small {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <form action="/signup" method="post" id="form">
@@ -13,29 +18,45 @@
         <div class="field">
             <label for="name">Name:</label>
             <input type="text" name="fullName" id="name" placeholder="Enter your full name">
-            <small></small>
+            <small id="display-name"></small>
         </div>
         <div class="field">
             <label for="email">E-mail:</label>
             <input type="email" name="email" id="emailID" placeholder="Enter your email">
-            <small></small>
+            <small id="display-email"></small>
         </div>
         <button type="submit">Signup</button>
     </form>
     <script>
         // Working with web form
         // formElement.elements // HTMLFormControlsCollection
-        let formElement = document.querySelector('#form');
-        // Accessing form fields - elements property
-        console.log(formElement.elements);
+        // let formElement = document.querySelector('#form');
+        // // Accessing form fields - elements property
+        // console.log(formElement.elements);
 
-        // Access the form fields
-        // by index
-        console.log(formElement.elements[2])
-        // by name attribute value
-        console.log(formElement.elements['fullName'])
-        // by id attribute value
-        console.log(formElement.elements['emailID'])
+        // // Access the form fields
+        // // by index
+        // console.log(formElement.elements[2])
+        // // by name attribute value
+        // console.log(formElement.elements['fullName'])
+        // // by id attribute value
+        // console.log(formElement.elements['emailID'])
+
+        let formElement = document.querySelector('#form');
+        console.log(formElement.elements);
+        let btn = formElement.elements[2];
+        console.log(btn);
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let fullName = formElement.elements['fullName'].value;
+            console.log(fullName);
+            let email = formElement.elements['email'].value;
+            console.log(email);
+            let displayName = document.querySelector('#display-name');
+            let displayEmail = document.querySelector('#display-email');
+            displayName.innerText = fullName;
+            displayEmail.innerText = email;
+        })
 
     </script>
 </body>
