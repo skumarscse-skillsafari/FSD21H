@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Working with web form - Creating dynamic check box">
+    <title>Working with web form - Creating dynamic check box</title>
+</head>
+<body>
+    <h1>Dynamic Check box:</h1>
+    <form action="#" id="checkboxForm">
+        <div id="root">
+
+        </div>
+        <button id="btn">Get selected subject(s)</button>
+    </form>
+    <script>
+        // Working with web form - Creating dynamic check box
+        const subjectsArray = [ 'English', 'Maths', 'Physics', 'Chemistry', 'Computer' ];
+        subjectsArray.forEach((subject, index) => {
+            const id = `subject-${index+1}`; // subject-1
+            const label = document.createElement('label');
+            label.setAttribute('for', id);
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = `subjects`;
+            checkbox.value = subject;
+            checkbox.id = id;
+
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(subject));
+
+            document.querySelector('#root').appendChild(label);
+        })
+
+        let checkboxElements = document.querySelector('#checkboxForm').elements.subjects;
+        console.log(checkboxElements);
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let values = Array.from(checkboxElements)
+                                .filter((checkbox) => checkbox.checked)
+                                .map(item => item.value);
+            console.log(values);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Working with Web forms - Check Box">
+    <title>Working with Web forms - Check Box</title>
+</head>
+<body>
+    <form action="#" id="checkboxForm">
+        <h1>Select your favourite subject(s):</h1>
+        <label for="english">
+            <input type="checkbox" name="subjects" id="english" value="English">English
+        </label>
+        <label for="maths">
+            <input type="checkbox" name="subjects" id="maths" value="Maths">Maths
+        </label>
+        <label for="physics">
+            <input type="checkbox" name="subjects" id="physics" value="Physics">Physics
+        </label>
+        <label for="chemistry">
+            <input type="checkbox" name="subjects" id="chemistry" value="Chemistry">Chemistry
+        </label>
+        <label for="computer">
+            <input type="checkbox" name="subjects" id="computer" value="Computer">Computer
+        </label>
+        <button id="btn">Get selected subject(s)</button>
+    </form>
+    <script>
+        // Working with Web forms - Check Box
+        let checkboxElements = document.querySelector('#checkboxForm').elements.subjects;
+        console.log(checkboxElements);
+        let btn = document.querySelector('#btn');
+        // btn.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     let values = [];
+        //     checkboxElements.forEach(checkbox => {
+        //     if(checkbox.checked) {
+        //         values.push(checkbox.value);
+        //     }
+        // });
+        // console.log(values)
+        // })
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let values = Array.from(checkboxElements)
+                                .filter((checkbox) => checkbox.checked)
+                                .map(item => item.value);
+            console.log(values);
+        })
+       
+
+
+    </script>
+</body>
+</html>

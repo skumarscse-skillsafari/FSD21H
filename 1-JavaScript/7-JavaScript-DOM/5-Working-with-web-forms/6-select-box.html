@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Working with web form - Select box">
+    <title>Working with web form - Select box</title>
+</head>
+<body>
+    <h1>Handling Select Box:</h1>
+    <form action="#" id="select-box-form">
+        <select name="subjects" id="select-menu" multiple>
+            <option value="English">English</option>
+            <option value="Maths">Maths</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Computer">Computer</option>
+        </select>
+        <button id="btn">Select your favourite subject(s)</button>
+    </form>
+    <script>
+        // Working with web form - Select box
+        let selectMenu = document.querySelector('#select-menu');
+        let btn = document.querySelector('#btn');
+        console.log(selectMenu.options)
+        
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log(Array.from(selectMenu.options)
+                    .filter(element => element.selected)
+                    .map(item => item.value));
+        });
+    </script>
+</body>
+</html>
