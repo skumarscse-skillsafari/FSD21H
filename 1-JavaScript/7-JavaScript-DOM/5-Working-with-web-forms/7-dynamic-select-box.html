@@ -69,32 +69,17 @@
         btnRemove.onclick = (e) => {
             e.preventDefault();
             let selectOptions = selectBox.options;
-            // let result = Array.from(selectOptions).filter(selectOption => selectOption.selected);
-            // console.log(result);
-            // selectBox.remove(1);
-
-            // Remove single option
-            // Array.from(selectOptions).forEach((selectOption, index) => {
-            //     if(selectOption.selected) {
-            //         selectBox.remove(index);
-            //     }
-            // })
-
-            // Remove Multiple option
+            
+            // Remove Single and Multiple option
             let selected = Array.from(selectOptions).map(selectOption => selectOption.selected);
             console.log(selected); // [true, true, true, false, false]
-            selected.forEach((selec, index) => {
-                if(selec) {
-                    selectBox.remove(index)
+            let index = selected.length;
+            console.log(index); // 5
+            while(index--) { // 0
+                if(selected[index]) {  // true
+                    selectBox.remove(index);
                 }
-            })
-            // let index = selectBox.options.length;
-            // console.log(index); // 5
-            // while(index--) { // 0
-            //     if(selected[index]) {  // true
-            //         selectBox.remove(index);
-            //     }
-            // }
+            }
         }
 
 
