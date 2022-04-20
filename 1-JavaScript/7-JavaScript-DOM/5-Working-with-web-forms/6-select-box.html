@@ -21,14 +21,16 @@
     </form>
     <script>
         // Working with web form - Select box
-        let selectMenu = document.querySelector('#select-menu');
+        // let selectMenu = document.querySelector('#select-menu');
+        // console.log(selectMenu);
+        // console.log(selectMenu.options)
         let btn = document.querySelector('#btn');
-        console.log(selectMenu.options)
+        let selectMenu = document.querySelector('#select-box-form').elements.subjects.options;
         
 
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log(Array.from(selectMenu.options)
+            console.log(Array.from(selectMenu)
                     .filter(element => element.selected)
                     .map(item => item.value));
         });

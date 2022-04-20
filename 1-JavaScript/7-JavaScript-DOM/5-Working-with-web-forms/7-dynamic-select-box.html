@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Dynamic select box">
+    <title>Dynamic select box</title>
+</head>
+<body>
+    <h1>Dynamic select box:</h1>
+    <form action="#" id="selectForm">
+        <p>
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject" placeholder="Enter a subject" autocomplete="off">
+        </p>
+            <button id="btnAdd">Add Subject</button>
+        <p>
+            <label for="subjects">Subject List:</label>
+            <select name="subjects" id="subjects" multiple>
+            
+            </select>
+        </p>
+            <button id="btnRemove">Remove Subject(s)</button>
+    </form>
+    <script>
+        // Dynamic select box
+        // Add options
+        // 1. Using Option contructor and add() method
+        // let newOption = new Option('Option Text', 'Option Value')
+        // selectBox.add(newOption, undefined) // undefined - add new option at the end of option list
+
+        // 2. Using DOM methods
+        // const newOption = document.createElement('option');
+        // const optionValue = document.createTextNode('Option Text');
+        // newOption.appendChild(optionText);
+        // newOption.setAttribute('value', 'Option Value');
+        // selectBox.appendChild(newOption);
+
+        // Removing Options
+        // selectBox.remove(0);
+        // selectBox.options[0] = null;
+        // selectBox.removeChild(selectBox.options[0]);
+
+        const selectForm = document.querySelector('#selectForm');
+        // console.log(selectForm);
+        const selectInput = selectForm.elements['subject'];
+        // console.log(selectInput)
+        const selectBox = selectForm.elements['subjects'];
+        // console.log(selectBox)
+        const btnAdd = selectForm.elements['btnAdd'];
+        // console.log(btnAdd)
+        const btnRemove = selectForm.elements['btnRemove'];
+        // console.log(btnRemove)
+
+        btnAdd.onclick = (e) => {
+            e.preventDefault();
+            console.log(selectInput.value);
+            if(selectInput.value == '') {
+                alert('Enter subject name...');
+                return;
+            }
+            const option = new Option(selectInput.value, selectInput.value);
+            selectBox.add(option, undefined);
+            selectInput.value = '';
+            selectInput.focus();
+        }
+
+        btnRemove.onclick = (e) => {
+            e.preventDefault();
+            let selectOptions = selectBox.options;
+            // let result = Array.from(selectOptions).filter(selectOption => selectOption.selected);
+            // console.log(result);
+            // selectBox.remove(1);
+
+            // Remove single option
+            // Array.from(selectOptions).forEach((selectOption, index) => {
+            //     if(selectOption.selected) {
+            //         selectBox.remove(index);
+            //     }
+            // })
+
+            // Remove Multiple option
+            let selected = Array.from(selectOptions).map(selectOption => selectOption.selected);
+            console.log(selected); // [true, true, true, false, false]
+            selected.forEach((selec, index) => {
+                if(selec) {
+                    selectBox.remove(index)
+                }
+            })
+            // let index = selectBox.options.length;
+            // console.log(index); // 5
+            // while(index--) { // 0
+            //     if(selected[index]) {  // true
+            //         selectBox.remove(index);
+            //     }
+            // }
+        }
+
+
+    </script>
+</body>
+</html>
