@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="jQuery - Events">
+    <title>jQuery - Events</title>
+    <style>
+        p {
+            padding: 20px;
+            font: 20px sans-serif;
+            background: goldenrod;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1>jQuery Events</h1>
+    <p>Click on me...!!!</p>
+    <script>
+        // jQuery - Events
+        /*
+        ready()
+        click()
+        keypress()
+        focus()
+        blur()
+        change()
+
+        1. Mouse
+        click(), dbclick(), mouseenter(), mouseleave(), hover()
+
+        2. Keyboard
+        keypress(), keydown(), keyup()
+
+        3. Form
+        change(), focus(), blur(), submit()
+
+        4. Document/Window
+        ready(), resize(), scroll()
+        
+        */
+       $('document').ready(function() {
+           $('p').hover(function() {
+                $(this).slideUp();
+           })
+       })
+    </script>
+</body>
+</html>

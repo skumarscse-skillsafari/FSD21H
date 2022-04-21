@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="jQuery - Intro">
+    <title>jQuery - Intro</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p>Not yet loaded...</p>
+    <button type="button">Replace the paragraph text</button>
+    <!-- 
+        // jQuery - Intro
+        jQuery is a fast, lightweight and feature-rich - 'write less, do more'
+        1. Easily select elements to perform manipulation
+        2. Create effects like show or hide elements, sliding transition
+        3. Easily create complex CSS animations
+        4. Easily handle element attributes
+        5. Easily implement Ajax to perform async data exchange
+        6. Easily traverse between the elements
+        7. Perform multiple actions on a element
+
+        // Downloading jQuery
+        // jQuery CDN
+
+        $(document).ready(function() {
+
+        })
+
+     -->
+     <script>
+         $(document).ready(function() {
+             $('button').click(function() {
+                 $('p').text('Hello World...');
+             });
+         });
+
+        //  let btn = document.querySelector('button');
+        //  btn.onclick = () => {
+        //     let para = document.querySelector('p');
+        //     para.textContent = 'Hello World...';
+        //  };
+         
+     </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="jQuery - Effects - fadeIn() and fadeOut()">
+    <title>jQuery - Effects - fadeIn() and fadeOut()</title>
+    <style>
+        p {
+            padding: 15px;
+            background: goldenrod;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button class="fadein-btn">FadeIn paragraphs</button>
+    <button class="fadeout-btn">FadeOut paragraphs</button>
+    <button class="toggle-btn">Toggle paragraphs</button>
+    <p>This is a paragraph</p>
+    <p>This is another paragraph</p>
+    <script>
+        // jQuery - Effects - fadeIn(), fadeOut(), fadeToggle()
+        $('document').ready(function() {
+            // fadeIn()
+            $('.fadeout-btn').click(function() {
+                $('p').fadeOut(); 
+            });
+            
+            // fadeOut()
+            $('.fadein-btn').click(function() {
+                $('p').fadeIn();
+            });
+
+            // toggle()
+            $('.toggle-btn').click(function() {
+                $('p').fadeToggle();
+            });
+        })
+    </script>
+</body>
+</html>
