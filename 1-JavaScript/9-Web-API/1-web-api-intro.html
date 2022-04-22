@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Web API - Intro">
+    <title>Web API - Intro</title>
+</head>
+<body>
+    <!-- 
+        // Web API
+        1. Client Storage
+            1. cookies
+            2. localStorage
+            3. sessionStorage
+            4. IndexedDB
+        2. Geolocation API
+        3. Networks requests - fetch()
+        4. FormData 
+
+        // 1. Client Storage : Browser
+        // Cookies
+        // HTTP Cookies is piece of data that a server send to the web browser (when the user visits the website first time)
+        // The web browser stores the HTTP cookie on the user's computer and sends it back to the same server in the later request
+
+        // HTTP is stateless
+        // When you two subsequent HTTP requests to the server, there is no link between them, because the HTTP is stateless
+        // Session management: cookies allow you to manage informations that the server should remember. Ex: logins, credit/debit card details, shopping cart
+        // Personalization: store user preferences, themes, settings
+        // Tracking: cookies help record and analyze user behaviours in advertising
+
+        // Cookie details
+        // Name, Value, Domain, Path, Expiration, Secure flag
+        // Name: Cookie Name
+        // Value: Cookie Value
+        // Domain: Web application base URL Ex: skillsafari.in
+        // Path: Path of the domain Ex: skillsafari.in/courses
+        // Expiration: Wdy, DD-MM-YYYY HH:MM:SS GMT
+        // Secure flag: secure, unsecure
+        // Set-Cookie: cookieName=cookieValue; domain=domainName; path=pathName; expires=expirationTime; secure
+
+        1. setCookie()
+        2. getCookie()
+        3. removeCookie()
+
+        
+        
+
+     -->
+     <script>
+         // Set the cookie
+         function setCookie(cookieName, cookieValue, expirationTime, domain, path, secure) {
+            let cookieText = `${encodeURIComponent(cookieName)}=${encodeURIComponent(cookieValue)}`;
+            if(expirationTime instanceof Date) {
+                cookieText += `; expires=${expirationTime.toGMTString()}`;
+            }
+            if(path) cookieName += `; path=${path}`;
+            if(domain) cookieName += `; domain=${domain}`;
+            if(secure) cookieName += `; ${secure}`;
+            document.cookie = cookieText;
+         }
+         // setCookie('user@123', 'skillsafari@789');
+
+         // Get the cookie
+         function getCookie(name) {
+            const cookieName = `${encodeURIComponent(name)}`; //user%40123
+            const cookie = document.cookie; // username=skillsafari; user%40123=skillsafari%40789
+            let cookieArray = cookie.split('; '); // [ 'username=skillsafari', 'user%40123=skillsafari%40789' ]
+            let value = cookieArray.find((cookie) => { // user%40123=skillsafari%40789
+                return cookie.split('=')[0] === cookieName;  // [ 'user%40123', 'skillsafari%40789']
+            });
+            return value.split('=')[1];
+         }
+         console.log(getCookie('username')); // user%40123
+     </script>
+</body>
+</html>
