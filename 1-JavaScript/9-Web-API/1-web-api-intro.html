@@ -44,9 +44,12 @@
         2. getCookie()
         3. removeCookie()
 
-        
-        
+        // Remove the Cookie
+        // Removed/destroyed automatically when the browser is closed, if expiration time is not set
+        // Set the cookie once again with same name, path, domain and secure option. Set the expiration date to the past date and cookie value as empty string
 
+
+        
      -->
      <script>
          // Set the cookie
@@ -60,7 +63,8 @@
             if(secure) cookieName += `; ${secure}`;
             document.cookie = cookieText;
          }
-         // setCookie('user@123', 'skillsafari@789');
+        // setCookie('user@123', 'skillsafari@789');
+        // setCookie('username@123', 'edukeys@123');
 
          // Get the cookie
          function getCookie(name) {
@@ -72,7 +76,14 @@
             });
             return value.split('=')[1];
          }
-         console.log(getCookie('username')); // user%40123
+         // console.log(getCookie('username@123')); // skillsafari%40789
+
+         // Delete the Cookie
+         function deleteCookie(cookieName, cookieValue, expiration, domain, path, secure) {
+            setCookie(cookieName, cookieValue, expiration, domain, path, secure);
+         }
+
+        // deleteCookie('user@123', '', new Date(0), 'http://127.0.0.1/', '1-JavaScript/9-Web-API', "secure");
      </script>
 </body>
 </html>

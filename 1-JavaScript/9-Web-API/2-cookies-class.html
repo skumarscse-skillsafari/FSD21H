@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Cookies with Class">
+    <title>Cookies with Class</title>
+</head>
+<body>
+    <script>
+        // Cookies with Class
+
+        // Object
+        // let cookie = {
+        //     firstName: 'SkillSafari',
+        //     lastName: 'EduKeys',
+        //     age: 30,
+        //     getAge() {
+        //         console.log(`Age: ${this.age}`);
+        //     }
+        // }
+        // console.log(cookie.firstName);
+        // console.log(cookie.lastName);
+        // console.log(cookie.age);
+        // cookie.getAge();
+
+        // Class
+        /*
+        class className {
+            // variable declaration = value
+            // function declaration and definition
+        }
+        let instance = new className();
+        instance.varName;
+        instance.funName();
+        */
+        // class User {
+        //     firstName = 'SkillSafari';
+        //     lastName = 'EduKeys';
+        //     age = 30;
+        //     getAge() {
+        //         console.log(`Age: ${this.age}`);
+        //     }
+        // }
+        // let cookie = new User();
+        // console.log(cookie.firstName);
+        // console.log(cookie.lastName);
+        // console.log(cookie.age);
+        // cookie.getAge();
+
+        // Get the values of Class properties at run time
+        // class User {
+        //     constructor(firstName, lastName, age) { // this = {}
+        //         this.firstName = firstName; // this.firstName = 'SkillSafari' // this ={ firstName: 'SkillSafari'}
+        //         this.lastName = lastName; // this.lastName = 'EduKeys' // this ={ firstName: 'SkillSafari', lastName: 'EduKeys'}
+        //         this.age = age; // this.age = 30 // this ={ firstName: 'SkillSafari', lastName: 'EduKeys', age: 30}
+        //     }
+        //     getAge() {
+        //         console.log(`Age: ${this.age}`)
+        //         } 
+        // }
+        // let cookie = new User('SkillSafari', 'EduKeys', 30);
+        // console.log(cookie.firstName);
+        // console.log(cookie.lastName);
+        // console.log(cookie.age);
+        // cookie.getAge();
+
+        // Static
+        // class User {
+        //    static firstName = 'SkillSafari';
+        //    static lastName = 'EduKeys';
+        //    static age = 30;
+        //    static getAge() {
+        //         console.log(`Age: ${this.age}`);
+        //     }
+        // }
+        // // let cookie = new User();
+        // console.log(User.firstName);
+        // console.log(User.lastName);
+        // console.log(User.age);
+        // User.getAge();
+        
+    class Cookie {
+        static setCookie(cookieName, cookieValue, expirationTime, domain, path, secure) {
+            let cookieText = `${encodeURIComponent(cookieName)}=${encodeURIComponent(cookieValue)}`;
+            if(expirationTime instanceof Date) {
+                cookieText += `; expires=${expirationTime.toGMTString()}`;
+            }
+            if(path) cookieName += `; path=${path}`;
+            if(domain) cookieName += `; domain=${domain}`;
+            if(secure) cookieName += `; ${secure}`;
+            document.cookie = cookieText;
+         }
+
+        static getCookie(name) {
+            const cookieName = `${encodeURIComponent(name)}`; //user%40123
+            const cookie = document.cookie; // username=skillsafari; user%40123=skillsafari%40789
+            let cookieArray = cookie.split('; '); // [ 'username=skillsafari', 'user%40123=skillsafari%40789' ]
+            let value = cookieArray.find((cookie) => { // user%40123=skillsafari%40789
+                return cookie.split('=')[0] === cookieName;  // [ 'user%40123', 'skillsafari%40789']
+            });
+            return value.split('=')[1];
+         }
+
+        static deleteCookie(cookieName, cookieValue, expiration, domain, path, secure) {
+            this.setCookie(cookieName, cookieValue, expiration, domain, path, secure);
+         }
+        }
+
+        // Cookie.setCookie('admin', 'adim@123');
+        // Cookie.setCookie('guest', 'guest@123');
+        // console.log(Cookie.getCookie('admin'));
+        // console.log(Cookie.getCookie('guest'));
+        Cookie.deleteCookie('guest', '', new Date(0), 'http://127.0.0.1/', '1-JavaScript/9-Web-API', "secure");
+
+
+    </script>
+</body>
+</html>
