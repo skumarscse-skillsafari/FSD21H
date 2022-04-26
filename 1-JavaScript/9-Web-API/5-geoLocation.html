@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Web API - GeoLocation">
+    <title>Web API - GeoLocation</title>
+</head>
+<body>
+    <div class="container">
+        <button id="show">Show my location</button>
+        <div id="message">
+
+        </div>
+    </div>
+    <script>
+        // Web API - GeoLocation
+        // Accessing GeoLocation
+        // navigator.geolocation // return Geolocation object
+        // Properties:
+        // getCurrentPosition()
+        // clearWatch()
+        // watchPosition()
+
+        // IIFE
+        (function () {
+            console.log(`I am IIFE...`)
+        })();
+
+        (() => {
+            let a = 10, b = 20;
+            console.log( a + b );
+        })();
+
+        (() => {
+            const message = document.querySelector('#message');
+            if(!navigator.geolocation) {
+                message.textContent = `Your browser doesn't support geolocation.`;
+                return;
+            }
+            
+            const btn = document.querySelector('#show');
+            btn.addEventListener('click', () => {
+                navigator.geolocation.getCurrentPosition(onSucess, onError);
+            });
+
+            function onSucess(position) { // position return GeolocationPosition object with coords property with latitude and longitude
+                console.log(position);
+                const {latitude, longitude} = position.coords;
+                message.textContent = `Your location: ${latitude}, ${longitude}`;
+
+            }
+
+            function onError() {
+                message.textContent = `Failed to access your location.`;
+            }
+        })();
+
+
+    </script>
+</body>
+</html>

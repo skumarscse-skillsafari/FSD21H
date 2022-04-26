@@ -10,6 +10,62 @@
 <body>
     <script>
         // Web API - localStorage
+        // Accessing the localStorage
+        // window.localStorage
+        // localStorage // return Storage object 
+        // Storage object
+        // setItem('key', 'value') // set the key value paired data in Storage object
+        // getItem('key') // get the 'value' of the corresponding 'key' from Storage object
+        // removeItem('key') // remove the corrsponding key-value pair from the Storage onject
+        // clear() // removes all the key-value paired data
+        // length // return the number of key-value paired data exists in Storage object
+        // keys() // iterate the keys of the key-value paired data in Storage object
+
+        // Cookie Vs localStorage
+        // Cookie - store upto 4 KB of data in 'name: value' pair, bound to domain/origin.
+        // Can store upto 20 cookies per domain
+        // localStorage: store upto 5 MB of data in 'key: value pair', bound to domain/origin
+
+        // Set the localStorage (key: value) pair
+        function setLocalStorage(key, value) {
+            localStorage.setItem(key, value)
+        }
+        // setLocalStorage('admin', 'admin@123');
+        // setLocalStorage('guest', 'guest@123');
+
+        // get the value from localStorage
+        function getLocalStorage(key) {
+            console.log(localStorage.getItem(key));
+        }
+        // getLocalStorage('admin');
+        // getLocalStorage('guest');
+
+        // for (const key of Object.keys(localStorage)) {
+        //     console.log(`Key: ${key} => Value: ${localStorage.getItem(key)}`);
+        // }
+
+        // remove the localStorage (key: value) pair
+        function removeLocalStorage(key) {
+            localStorage.removeItem(key);
+            console.log(localStorage);
+        }
+        // removeLocalStorage('guest');
+
+        // Store the object as value
+        const user = {
+            firstName: 'SkillSafari',
+            lastName: 'EduKeys',
+            age: 30
+        }
+        localStorage.setItem('user', JSON.stringify(user)); // JSON.stringify() - convert object to JSON
+
+        // Accessing object value of localStorage 
+        let parsedString = localStorage.getItem('user');
+        console.log(JSON.parse(parsedString)); // JSON.parse() - convert JSON to object
+        console.log(localStorage);
+
+
+
     </script>
 </body>
 </html>
