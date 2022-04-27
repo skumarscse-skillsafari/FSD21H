@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Web API - IndexedDB">
+    <title>Web API - IndexedDB</title>
+</head>
+<body>
+    <h1>IndexedDB - Demo</h1>
+    <script>
+        /* Web API - IndexedDB
+        IndexedDB is a large-scale object store built into the browser.
+        The indexedDB allows us to store the data using key-value pair.
+        Can store: Number, String, Boolean, Null, Undefined, Date, Arrays, Object
+        let user = {
+            firstName: 'Skillsafari',
+            lastName: 'EduKeys',
+            age: 30,
+            designation: 'Full-Stack developer',
+            address: {
+                doorNo: 123,
+                street: 'xyz'
+            },
+            hobbies: ['cricket', 'football']
+        }
+        IndexedDB - Create a database ( n - number ) using object store
+        Each domain we can able to create only one database
+        NoSQL - No need of SQL Queries to query the database
+        CRUD - Create, Read, Update, Delete
+        It works in both online and offline
+
+        Features:
+        1. Store the data in key-value pair
+        2. It is transactional
+        3. Asynchronous
+        4. NoSQL system
+        5. Follows the same-origin policy
+        Ex: www.skillsafari.in, www.edukeys.in
+
+        // Accessing indexedDB
+        1. window.indexedDB
+        2. indexedDB // return IDBFactory object
+        // IDBFactory object properties
+        // open()
+
+        // create/open a database
+        // let request = indexedDB.open('databaseName', 'version') // return IDBOpenDBRequest object
+        // IDBOpenDBRequest object properties
+        // onsuccess(e)
+        // onerror(e)
+        // onupgradeneeded(e)
+        // result // return IDBDatabase object with name, objectStoreNames properties
+
+        // Create object stores
+        // First time creation of object store
+        // let db = request.onupgradeneeded(e)
+        // let store = db.createObjectStore('objectStoreName', {objectStoreRules})
+        // let index = store.createIndex('propertyName', {indexRules})
+
+        // Insert the data into the object store
+        // databaseName, objectstoreName
+        // let txn = db.transaction('objectStoreName', 'permission') // permission: 'readwrite', 'readonly'
+        // let store = txn.objectStore('objectStoreName')
+        // let query = store.put(object);
+        // db.close() // end of transaction
+
+        // Read the data from objectStore using 'key'
+        // databaseName, objectStoreName, propertyName - 'id'
+        // transaction('objectStoreName', 'permission')
+        // objectStore('objectStoreName')
+        // get(id)
+        // close()
+
+        // Read the data from objectStore using index - 'email'
+        // databaseName, objectStoreName, index - 'email'
+        // transaction('objectStoreName', 'permission')
+        // objectStore('objectStoreName')
+        // result = index('indexName')
+        // get(result)
+        // close()
+
+        // Read all the data from objectStore
+        // databaseName, objectStoreName
+        // transaction('objectStoreName', 'permission')
+        // objectStore('objectStoreName')
+        // openCursor() // Access all the data fro objectStore one by one
+        // close()
+
+        // Delete a data in objectStore
+        // databaseName, objectStoreName, propertyName - 'id'
+        // transaction('objectStoreName', 'permission')
+        // objectStore('objectStoreName')
+        // delete(id)
+        // close()
+
+        */
+       // IIFE
+       (function() {
+        // Check the compatibility of indexedDB with the browser
+        if(!window.indexedDB) {
+            console.log(`Your browser not supporting indexedDB`);
+            return;
+        }
+
+        // Open/create database
+        let request = indexedDB.open('users', 1.0);
+        console.log(request); // IDBOpenDBRequest object
+
+        // create objectStore and define 'index'
+        request.onupgradeneeded = (e) => {
+            let db = e.target.result;
+            console.log(db);
+            let store = db.createObjectStore('Contacts', { // id, firstName, lastName, email
+                autoIncrement: true
+            });
+
+            let index = store.createIndex('email', 'email', {
+                unique: true,
+            });
+        }
+
+        request.onerror = (e) => {
+            console.error(`Database error: ${e.target.errorCode}`)
+        }
+
+        request.onsuccess = (e) => {
+            console.log(e);
+            const db = e.target.result;
+
+            // Insert Contacts
+            function insertContact(db, contact) { // db = IDBDatabase // contact = { firstName: 'SkillSafari', lastName: 'EduKeys', email: 'info@edukeys.in' }
+                let txn = db.transaction('Contacts', 'readwrite');
+                let store = txn.objectStore('Contacts');
+                let query = store.put(contact);
+                query.onsuccess = (e) => {
+                    console.log(e);
+                }
+                query.onerror = (e) => {
+                    console.error(e.target.errorCode)
+                }
+                txn.onComplete = () => {
+                    db.close()
+                }
+            }
+            // insertContact(db, {
+            //     firstName: 'SkillSafari',
+            //     lastName: 'EduKeys',
+            //     email: 'info@edukeys.in'
+            // });
+
+            // insertContact(db, {
+            //     firstName: 'John',
+            //     lastName: 'Jack',
+            //     email: 'john@edukeys.in'
+            // });
+
+            // insertContact(db, {
+            //     firstName: 'Mary',
+            //     lastName: 'John',
+            //     email: 'mary@edukeys.in'
+            // });
+
+            // Read the data from objectStore using 'key'
+            function getContactById(db, id) {
+                let txn = db.transaction('Contacts', 'readwrite');
+                let store = txn.objectStore('Contacts');
+                let query = store.get(id);
+                query.onsuccess = (e) => {
+                    if(!e.target.result) {
+                        console.log(`The contact with id: ${id} not found`)
+                    } else {
+                        console.table(e.target.result);
+                    }  
+                }
+                query.onerror = (e) => {
+                    console.error(e.target.errorCode)
+                }
+                txn.onComplete = () => {
+                    db.close()
+                }
+            }
+           // getContactById(db, 3);
+
+            // Read the data from objectStore using 'index'
+            function getContactByIndex(db, email) {
+                let txn = db.transaction('Contacts', 'readwrite');
+                let store = txn.objectStore('Contacts');
+                let index = store.index('email');
+                let query = index.get(email);
+                query.onsuccess = (e) => {
+                        console.table(e.target.result);
+                }
+                query.onerror = (e) => {
+                    console.error(e.target.errorCode)
+                }
+                txn.onComplete = () => {
+                    db.close()
+                }
+            }
+            // getContactByIndex(db, 'mary@edukeys.in');
+
+            // Read the all the data from objectStore
+            function getAllContacts(db) {
+                let txn = db.transaction('Contacts', 'readwrite');
+                let store = txn.objectStore('Contacts');
+                store.openCursor().onsuccess = (e) => {
+                    let cursor = e.target.result;
+                    if(cursor) {
+                        let contact = cursor.value;
+                        cursor.continue();
+                    }
+                } 
+                txn.onComplete = () => {
+                db.close()
+                }
+            }
+            getAllContacts(db);
+
+        }
+
+       })()
+    </script>
+</body>
+</html>
